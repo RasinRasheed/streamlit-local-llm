@@ -1,28 +1,33 @@
 import streamlit as st
 import ollama
 
+
 class OllamaChat:
     """
     A class to interact with the Ollama chat model.
     """
+
     def __init__(self, model: str = "qwen2.5:0.5b"):
         """Initialize the chat model."""
         self.model = model
 
     def generate_response(self, prompt: str) -> str:
         """Generate a response from the Ollama model."""
-        response = ollama.chat(model=self.model, messages=[{"role": "user", "content": prompt}])
-        return response['message']['content']
+        response = ollama.chat(
+            model=self.model, messages=[{"role": "user", "content": prompt}]
+        )
+        return response["message"]["content"]
+
 
 class StreamlitChatUI:
     """
     A class to create a Streamlit-based chat UI.
     """
-    
+
     def __init__(self, chat_model: OllamaChat):
         """
         Initialize the Streamlit UI.
-        
+
         Parameters
         ----------
         chat_model : OllamaChat
@@ -53,7 +58,7 @@ class StreamlitChatUI:
     def process_input(self, user_input: str):
         """
         Handle user input and generate a response.
-        
+
         Parameters
         ----------
         user_input : str
@@ -69,6 +74,7 @@ class StreamlitChatUI:
             st.markdown(response)
 
         st.session_state.messages.append({"role": "assistant", "content": response})
+
 
 if __name__ == "__main__":
     chat_model = OllamaChat(model="qwen2.5:0.5b")  # Change model if needed

@@ -31,7 +31,7 @@ class StreamlitChatUI:
         Parameters
         ----------
         chat_model : OllamaChat
-            An instance of the OllamaChat class.
+            An instance of the OllamaChat class
         """
         self.chat_model = chat_model
         self.setup_ui()

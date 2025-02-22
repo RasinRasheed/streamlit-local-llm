@@ -62,7 +62,7 @@ class StreamlitChatUI:
         Parameters
         ----------
         user_input : str
-            The input provided by the user.
+            The input provided by the user
         """
         st.session_state.messages.append({"role": "user", "content": user_input})
 

@@ -2,4 +2,5 @@
 max-line-length = 110
 
 exclude = *.yaml, *.yml  # Exclude YAML files from being checked
+exclude = .venv, venv, */site-packages/*
 
